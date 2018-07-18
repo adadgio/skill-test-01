@@ -9,7 +9,7 @@ See: http://symfony.com/doc/2.8/setup/file_permissions.html
 
 ### Skill test
 
-A partir du projet Symfony 2.8, réaliser une API rapide avec les fonctionalités suivantes:
+A partir du projet Symfony 2.8, réaliser une API rapide avec les fonctionalités suivantes (créez votre propre branche).
 
 Enpoint:
 
@@ -23,3 +23,4 @@ Enpoint:
 - Il est demandé de créer un service "Serializer" par soit même à utiliser pour retourner une réponse JSON à partir d'un objet (qui pourra être un User mais aussi n'importe quel autre entité potentielle !)
 
 - Sans coder: donnez nous quelques techniques qui permettraient de sécuriser l'API
+- Enfin, pusher votre branche sur le repository (nous devrons vous y donner accès - à demander au préalable!)
