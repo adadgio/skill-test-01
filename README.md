@@ -15,15 +15,17 @@ Enpoint:
 
 - GET /rest/users           -> Liste des utilisateurs
 - GET /rest/users/{id}      -> Retourne un objet user (garder la BDD très simple, une entité à 2/3 champs suffit)
-- POST /rest/users/{id}     -> Modifie les propritétés d'un utilisateur passés en POST
-
-- Le controller ne doit pas être chargé de logique le moins possible: utiliser pour cela un event listener pour ces trois endpoints pour y coder la logique qui récupère l'utilisateur dans la base, le modifie, etc.
-
-- Un example de event/event listener est créé (voir ExampleEvent et ExampleEventListener).
-- Un example de leur utilisation est "pseudo" codé dans DefaultController::exerciceTip() ou exerciceTip02 pour vous mettre sur les rails.
+- POST /rest/users/{id}     -> Modifie une/les propriétés d'un utilisateur passés en POST
 
 - L'API doit retourner du JSON
-- Il est demandé de créer un service "Serializer" pour retourner une réponse JSON à partir d'un objet (qui pourra être un User mais aussi n'importe quel autre entité potentielle !)
+- Le controller doit contenir peut de code: utiliser pour cela un event listener pour ces trois endpoints pour y coder la logique qui récupère l'utilisateur dans la base, le modifie, etc.
+- Il est également demandé de créer un service "Serializer" pour convertir un object user en réponse JSON (voir DefaultController::exerciceTip())
 
 - Sans coder: donnez nous quelques idées qui permettraient de mieux sécuriser l'API à ce jour ouverte
 - Enfin, pusher votre branche sur le repository (nous devrons vous y donner accès - à demander au préalable!)
+
+## Tips
+
+- Un example de event/event listener est déjà créé (voir ExampleEvent et ExampleEventListener).
+- Un example de leur utilisation est "pseudo" codé dans DefaultController::exerciceTip() ou exerciceTip02 pour vous mettre sur les rails.
+- Dernier conseil: faîtes simple !

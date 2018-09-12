@@ -20,7 +20,7 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ));
     }
-
+    
     /**
      * @Route("/exercice-tip-01/{userId}", name="exercice_tip_01")
      */
@@ -36,6 +36,11 @@ class DefaultController extends Controller
         $user = $event->getUser();
 
         return new JsonResponse(['user' => 'Hi']);
+        // ou, pour coller à la demande de l'exercice...
+        // $serializer = $this->get('app.awesome_serializer')
+        // $serializer->serialize($user)
+        // $response = $serializer->getResponse(); // Paf! renverra donc qq chose du type JsonResponse... !
+        // return $response;
     }
 
     /**
