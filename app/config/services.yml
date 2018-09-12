@@ -4,6 +4,9 @@ parameters:
     #parameter_name: value
 
 services:
-    #service_name:
-    #    class: AppBundle\Directory\ClassName
-    #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+    app.example_listener:
+        class: AppBundle\Listener\ExampleEventListener
+        arguments: [ "idonnnowknoooo!" ]  # Hmmm, is that correct really?
+        tags:
+           - { name: kernel.event_listener, event: app.event.get_user, method: onGetUser }
+           - { name: kernel.event_listener, event: app.event.create_user, method: onCreateUser }

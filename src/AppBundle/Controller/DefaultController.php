@@ -5,6 +5,9 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+use AppBundle\Event\ExampleEvent;
 
 class DefaultController extends Controller
 {
@@ -13,9 +16,38 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ));
+    }
+
+    /**
+     * @Route("/exercice-tip-01/{userId}", name="exercice_tip_01")
+     */
+    public function exerciceTip01(Request $request, $userId)
+    {
+        $dispatcher = $this->get('event_dispatcher');
+
+        $event = new ExampleEvent();
+        $event->setUserId($userId);
+
+        $dispatcher->dispatch('app.event.get_user', $event);
+
+        $user = $event->getUser();
+
+        return new JsonResponse(['user' => 'Hi']);
+    }
+
+    /**
+     * @Route("/exercice-tip-02", name="exercice_tip_02")
+     */
+    public function exerciceTip02(Request $request)
+    {
+        $dispatcher = $this->get('event_dispatcher');
+
+        $event = new ExampleEvent();
+        $dispatcher->dispatch('app.event.create_user', $event);
+
+        return new JsonResponse(['result' => 'Hi']);
     }
 }
