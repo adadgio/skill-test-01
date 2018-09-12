@@ -18,7 +18,7 @@ Enpoint:
 - POST /rest/users/{id}     -> Modifie une/les propriétés d'un utilisateur passés en POST
 
 - L'API doit retourner du JSON
-- Le controller doit contenir peut de code: utiliser pour cela un event listener pour ces trois endpoints pour y coder la logique qui récupère l'utilisateur dans la base, le modifie, etc.
+- Le controller doit contenir peu de code: utiliser pour cela un event listener pour ces trois endpoints pour y coder la logique qui récupère l'utilisateur dans la base, le modifie, etc.
 - Il est également demandé de créer un service "Serializer" pour convertir un object user en réponse JSON (voir DefaultController::exerciceTip())
 
 - Sans coder: donnez nous quelques idées qui permettraient de mieux sécuriser l'API à ce jour ouverte
